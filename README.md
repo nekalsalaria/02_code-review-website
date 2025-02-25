@@ -10,7 +10,7 @@ Code Reviewer is a web application that analyzes your code and provides optimize
 - 🛠 **Best Practices** – Ensure clean, maintainable, and scalable code.  
 
 ## How It Works  
-1. Paste or upload your code.  
+1. Paste your code.  
 2. Click the "Review" button.  
 3. Get an optimized version along with improvement suggestions.  
 
