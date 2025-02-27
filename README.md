@@ -17,7 +17,7 @@ Code Reviewer is a web application that analyzes your code and provides optimize
 ## Installation  
 To run the project locally:  
 ```sh
-git clone https://github.com/tania303-ai/Code-Reviewer.git  
+git clone https://github.com/nekalsalaria/code-review-website  
 cd Code-Reviewer  
 npm install  
 npm start  
