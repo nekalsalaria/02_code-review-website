@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import "prismjs/themes/prism-tomorrow.css"
 import Editor from "react-simple-code-editor"
@@ -8,22 +7,25 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import axios from 'axios'
 import './App.css'
+import Loader from './Loader'
 
 function App() {
-  const [ count, setCount ] = useState(0)
-  const [ code, setCode ] = useState(` function sum() {
+  const [count, setCount] = useState(0)
+  const [code, setCode] = useState(` function sum() {
   return 1 + 1
 }`)
-
-  const [ review, setReview ] = useState(``)
+  const [review, setReview] = useState(``)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     prism.highlightAll()
   }, [])
 
   async function reviewCode() {
+    setLoading(true)
     const response = await axios.post('http://localhost:3000/ai/get-review', { code })
     setReview(response.data)
+    setLoading(false)
   }
 
   return (
@@ -51,17 +53,11 @@ function App() {
             className="review">Review</div>
         </div>
         <div className="right">
-          <Markdown
-
-            rehypePlugins={[ rehypeHighlight ]}
-
-          >{review}</Markdown>
+          {loading ? <Loader /> : <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>}
         </div>
       </main>
     </>
   )
 }
-
-
 
 export default App
