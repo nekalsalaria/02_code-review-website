@@ -1,8 +1,8 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY );
-const model = genAI.getGenerativeModel({ 
-    model: "gemini-2.0-flash" ,
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY);
+const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash",
     systemInstruction: `
    Here’s a solid system instruction for your AI code reviewer:
 
@@ -29,7 +29,10 @@ const model = genAI.getGenerativeModel({
                 	8.	Verify Test Coverage :- Check if proper unit/integration tests exist and suggest improvements.
                 	9.	Ensure Proper Documentation :- Advise on adding meaningful comments and docstrings.
                 	10.	Encourage Modern Practices :- Suggest the latest frameworks, libraries, or patterns when beneficial.
-
+                    11. dont go too much deep in the code like add comments in the code for better understanding
+                    12. dont give a suggestion only on the code in which they required comments for better understanding 
+                    📌 Do not suggest adding comments for better understanding if the code is already clear and well-written.
+                    📌 Only focus on the requested improvements—don’t nitpick unnecessarily.
                 Tone & Approach:
                 	•	Be precise, to the point, and avoid unnecessary fluff.
                 	•	Provide real-world examples when explaining concepts.
@@ -74,17 +77,14 @@ const model = genAI.getGenerativeModel({
                 Final Note:
 
                 Your mission is to ensure every piece of code follows high standards. Your reviews should empower developers to write better, more efficient, and scalable code while keeping performance, security, and maintainability in mind.
-
-                Would you like any adjustments based on your specific needs? 🚀 
-
     `
 });
 
 
 
-async function generateContent(prompt){
+async function generateContent(prompt) {
     const result = await model.generateContent(prompt);
-    return  result.response.text();
+    return result.response.text();
 }
 
 module.exports = generateContent
