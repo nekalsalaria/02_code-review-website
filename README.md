@@ -1,7 +1,7 @@
 # Code Reviewer
 
 ## Overview
-Code Reviewer is a web application designed to analyze your code and provide optimized, efficient alternatives. It helps improve performance, reduce redundancy, and ensures best coding practices are followed — empowering you to write clean, scalable code.
+A full-stack web application that analyzes code and provides optimized, efficient alternatives to improve performance, reduce redundancy, and enforce best coding practices. Built using React, Tailwind CSS, Express.js, Node.js, and AI-based algorithms, it helps developers write clean, scalable, and maintainable code effortlessly.
 
 ---
 
