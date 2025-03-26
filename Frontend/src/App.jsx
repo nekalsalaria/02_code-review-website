@@ -23,7 +23,7 @@ function App() {
 
   async function reviewCode() {
     setLoading(true)
-    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+    const response = await axios.post(`http://localhost:${process.env.PORT}/ai/get-review`, { code })
     setReview(response.data)
     setLoading(false)
   }
