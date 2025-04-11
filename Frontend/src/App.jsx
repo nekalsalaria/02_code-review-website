@@ -10,10 +10,8 @@ import './App.css'
 import Loader from './Loader'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [code, setCode] = useState(` function sum() {
-  return 1 + 1
-}`)
+  const placeholder = "// write or paste your code here"
+  const [code, setCode] = useState(placeholder)
   const [review, setReview] = useState(``)
   const [loading, setLoading] = useState(false)
 
@@ -44,7 +42,8 @@ function App() {
                 border: "1px solid #ddd",
                 borderRadius: "5px",
                 height: "100%",
-                width: "100%"
+                width: "100%",
+                color: code.trim() === placeholder ? "#888" : "#fff"
               }}
             />
           </div>
